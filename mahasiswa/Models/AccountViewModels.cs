@@ -9,7 +9,7 @@ namespace mahasiswa.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
-
+    //komen haris
     public class ExternalLoginListViewModel
     {
         public string ReturnUrl { get; set; }

@@ -1,0 +1,35 @@
+﻿@using mahasiswa.Models;
+@{
+    List<JurusanModel> List = (List<JurusanModel>)ViewData["ListJurusan"];
+    var no = 0;
+}
+
+<button type="button" class="btn btn-primary" onclick="return CreatePopUp()"><span class="fa-bold fa fa-plus"></span>&nbsp;&nbsp;Create New</button>
+<hr />
+<table class="table table-bordered table-striped table-condensed" id="table">
+    <thead>
+        <tr>
+            <th style="width:10px; text-align:center;">No</th>
+            <th style="width:70px; text-align:center;">Action</th>
+            <th style="width:100px; text-align:center;">Kode Jurusan</th>
+            <th>Jurusan</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in List)
+        {
+            no++;
+            <tr>
+                <td class="_i" style="text-align:center">@no</td>
+                <td>
+                    <input class="hidden _id1" value="@item.idJurusan" />
+                    <button class="btn btn-xs btn btn-primary" title="Edit" onclick="return EditPopUp($(this))"><span class="fa fa-pencil"></span></button>
+                    <button class="btn btn-xs btn btn-success" title="Detail" onclick="return DetailPopUp($(this))"><span class="fa fa-eye"></span></button>
+                    <button class="btn btn-xs btn btn-danger" title="Delete" onclick="return DeletePopUp($(this))"><span class="fa fa-trash"></span></button>
+                </td>
+                <td class="_id" style="text-align:center;">@item.idJurusan</td>
+                <td class="_jurusan">@item.jurusan</td>
+            </tr>
+        }
+    </tbody>
+</table>
